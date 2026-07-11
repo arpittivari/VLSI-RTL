@@ -1,10 +1,11 @@
-# Digital VLSI & RTL Design - Master Notes
+# 🎓 Digital VLSI & RTL Design - Master Notes
 
-*Comprehensive notes for M.Tech NIT Jaipur students targeting Top MNCs (Intel, AMD, NVIDIA, Qualcomm, TI).*
+> [!NOTE]
+> *Comprehensive notes for M.Tech NIT Jaipur students targeting Top MNCs (Intel, AMD, NVIDIA, Qualcomm, TI).*
 
 ---
 
-## 1. The ASIC/FPGA Design Flow
+## 🏭 1. The ASIC/FPGA Design Flow
 In a top MNC, you are a tiny cog in a massive machine. You must understand the entire flow, even if your job is just RTL design.
 
 1. **Architecture/Microarchitecture Specification:** System architects define what the chip should do.
@@ -17,48 +18,51 @@ In a top MNC, you are a tiny cog in a massive machine. You must understand the e
 
 ---
 
-## 2. Combinational vs. Sequential Circuits
+## 🔀 2. Combinational vs. Sequential Circuits
 
-### Combinational Circuits
-- **Definition:** Outputs depend **ONLY** on the current inputs.
-- **Memory:** Zero memory. No state. No clock.
-- **Examples:** Logic Gates, Multiplexers, Decoders, Encoders, Adders, ALUs.
-- **Verilog Rule:** Use `assign` statements OR `always @(*)` blocks with blocking assignments (`=`).
-
-### Sequential Circuits
-- **Definition:** Outputs depend on current inputs **AND** past inputs (state).
-- **Memory:** Has memory elements (Flip-Flops / Latches). Driven by a Clock (`clk`).
-- **Examples:** Counters, Shift Registers, State Machines (FSMs), FIFOs.
-- **Verilog Rule:** Use `always @(posedge clk)` blocks with non-blocking assignments (`<=`).
+| Feature | Combinational Circuits | Sequential Circuits |
+| :--- | :--- | :--- |
+| **Definition** | Outputs depend **ONLY** on current inputs. | Outputs depend on current **AND** past inputs. |
+| **Memory** | Zero memory. No state. No clock. | Has memory (Flip-Flops/Latches). Driven by a Clock (`clk`). |
+| **Examples** | Logic Gates, MUX, Decoders, Encoders, Adders, ALUs. | Counters, Shift Registers, State Machines (FSMs), FIFOs. |
+| **Verilog Rule** | Use `assign` or `always @(*)` with blocking (`=`). | Use `always @(posedge clk)` with non-blocking (`<=`). |
 
 ---
 
-## 3. Top MNC Interview Favorites
+## ⭐ 3. Top MNC Interview Favorites
 
 When you interview at top product companies, they almost always grill you on these four topics:
 
 ### A. Setup and Hold Time
-- **Setup Time ($T_{setup}$):** The minimum amount of time the data must be stable **BEFORE** the clock edge arrives. If data changes in this window, the flip-flop goes metastable.
-- **Hold Time ($T_{hold}$):** The minimum amount of time the data must be stable **AFTER** the clock edge. 
+- **Setup Time ($T_{setup}$):** The minimum time data must be stable **BEFORE** the clock edge. If data changes here, the flip-flop goes metastable.
+- **Hold Time ($T_{hold}$):** The minimum time data must be stable **AFTER** the clock edge. 
 
 ### B. Clock Domain Crossing (CDC)
-- **Problem:** When data travels from one clock speed (e.g., 100MHz) to a totally asynchronous clock (e.g., 33MHz), the flip-flops can capture changing data (metastability).
-- **Solution 1:** 2-Flop Synchronizers (for single bits).
+- **Problem:** When data travels from one clock speed (e.g., 100MHz) to a totally asynchronous clock (e.g., 33MHz), the receiving flip-flops can capture changing data (metastability).
+- **Solution 1:** 2-Flop Synchronizers (for single bit control signals).
 - **Solution 2:** Asynchronous FIFOs (for large data buses).
 
 ### C. Finite State Machines (FSMs)
 - **Mealy Machine:** Output depends on current state **and** inputs. (Faster, but can create combinational loops).
 - **Moore Machine:** Output depends **only** on current state. (Safer, preferred in industry).
-- Always code FSMs using the 3-always-block method (Next State Logic, State Register, Output Logic).
+
+> [!TIP]
+> Always code FSMs using the industry-standard 3-always-block method:
+> 1. Next State Logic (Combinational)
+> 2. State Register (Sequential)
+> 3. Output Logic (Combinational)
 
 ### D. Blocking vs. Non-Blocking Assignments
 - **`=` (Blocking):** Executes sequentially. Used for combinational logic.
 - **`<=` (Non-Blocking):** Executes concurrently. Used for sequential logic (Flip-Flops).
-- **Interview Trap:** Never mix `=` and `<=` in the same `always` block!
+
+> [!CAUTION]
+> **Interview Trap:** Never mix `=` and `<=` in the same `always` block!
 
 ---
 
-## 4. How to practice for interviews
+## 💡 4. How to Practice for Interviews
+
 1. **Draw it first:** Never write Verilog without drawing the logic gates or flip-flops on paper first.
-2. **Think about hardware, not software:** Verilog is not C. `if-else` statements create Multiplexers, they do not create branches.
-3. **Corner Cases:** When writing testbenches, always test what happens at reset, at maximum value, and when inputs change at the exact same time.
+2. **Think Hardware, Not Software:** Verilog is not C. `if-else` statements create Multiplexers, they do not create code branches.
+3. **Corner Cases:** When writing testbenches, always test what happens at reset, at maximum values, and when inputs change at the exact same time.

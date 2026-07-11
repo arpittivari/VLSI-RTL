@@ -163,7 +163,7 @@ Git uses three important areas:
 
     Working Directory
             |
-            | git add
+            | git add .
             v
        Staging Area
             |
