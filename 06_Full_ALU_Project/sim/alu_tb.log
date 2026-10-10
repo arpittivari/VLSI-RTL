@@ -1,0 +1,31 @@
+VCD info: dumpfile sim/alu_tb.vcd opened for output.
+
+===== 8-bit ALU TESTBENCH =====
+
+[PASS] #1 ADD 5+3    | a=  5 b=  3 op=000 | res=  8 cout=0 zero=0
+[PASS] #2 ADD ovf    | a=255 b=  1 op=000 | res=  0 cout=1 zero=1
+[PASS] #3 ADD cin    | a=  5 b=  3 op=000 | res=  9 cout=0 zero=0
+[PASS] #4 ADD zero   | a=  0 b=  0 op=000 | res=  0 cout=0 zero=1
+[PASS] #5 SUB 10-3   | a= 10 b=  3 op=001 | res=  7 cout=0 zero=0
+[PASS] #6 SUB zero   | a=  5 b=  5 op=001 | res=  0 cout=0 zero=1
+[PASS] #7 SUB borrow | a=  3 b= 10 op=001 | res=249 cout=1 zero=0
+[PASS] #8 AND mask   | a=255 b= 15 op=010 | res= 15 cout=0 zero=0
+[PASS] #9 AND zero   | a=170 b= 85 op=010 | res=  0 cout=0 zero=1
+[PASS] #10 OR full    | a=170 b= 85 op=011 | res=255 cout=0 zero=0
+[PASS] #11 OR zero    | a=  0 b=  0 op=011 | res=  0 cout=0 zero=1
+[PASS] #12 XOR self   | a=171 b=171 op=100 | res=  0 cout=0 zero=1
+[PASS] #13 XOR FF     | a=255 b=  0 op=100 | res=255 cout=0 zero=0
+[PASS] #14 NOT 00     | a=  0 b=  0 op=101 | res=255 cout=0 zero=0
+[PASS] #15 NOT FF     | a=255 b=  0 op=101 | res=  0 cout=0 zero=1
+[PASS] #16 NOT AA     | a=170 b=  0 op=101 | res= 85 cout=0 zero=0
+[PASS] #17 SHL 01     | a=  1 b=  0 op=110 | res=  2 cout=0 zero=0
+[PASS] #18 SHL 80     | a=128 b=  0 op=110 | res=  0 cout=1 zero=1
+[PASS] #19 SHL 55     | a= 85 b=  0 op=110 | res=170 cout=0 zero=0
+[PASS] #20 SHR 80     | a=128 b=  0 op=111 | res= 64 cout=0 zero=0
+[PASS] #21 SHR 01     | a=  1 b=  0 op=111 | res=  0 cout=1 zero=1
+[PASS] #22 SHR AA     | a=170 b=  0 op=111 | res= 85 cout=0 zero=0
+
+===== RESULTS: 22 PASS | 0 FAIL | 22 TOTAL =====
+31177125892638386280618139275035554908941274136641413
+C:\Users\arpit\Desktop\VLSI_RTL\06_Full_ALU_Project\verification/tb/alu_tb.v:102: $finish called at 262000 (1ps)
+

@@ -1,0 +1,15 @@
+VCD info: dumpfile sim/alu_tb_sv.vcd opened for output.
+
+===== SV OOP TESTBENCH — 8-bit ALU =====
+
+[1] Directed Corner Cases...
+[2] Running 500 random tests...
+[3] Sweeping all opcodes with boundary values...
+
+===== SCOREBOARD REPORT =====
+  PASS : 537
+  FAIL : 0
+  TOTAL: 537
+ 787733885130959511582470990094533955934940644764188409733
+C:\Users\arpit\Desktop\VLSI_RTL\06_Full_ALU_Project\verification/sv_tb/alu_tb_sv.sv:204: $finish called at 5371000 (1ps)
+

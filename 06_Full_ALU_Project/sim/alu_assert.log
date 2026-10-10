@@ -1,0 +1,15 @@
+VCD info: dumpfile sim/alu_assert.vcd opened for output.
+
+===== SVA ASSERTIONS — 8-bit ALU =====
+
+[1] Boundary value sweep (all 8 ops x 4 values)...
+[2] XOR self-check (a^a=0) x 20...
+[3] NOT inverse check x 20...
+[4] Random stimulus x 200...
+
+===== ASSERTION RESULTS =====
+  PASS: 1015
+  FAIL: 0
+ 201658147558666012070667194715116424551726823350524593544325
+C:\Users\arpit\Desktop\VLSI_RTL\06_Full_ALU_Project\verification/assertions/alu_assertions.sv:155: $finish called at 282000 (1ps)
+
